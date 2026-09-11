@@ -1,0 +1,559 @@
+{
+  "info": {
+    "_postman_id": "528db7d6-186c-4866-aedb-b420b11756b8",
+    "name": "PruebaTecnica_BryanLugmania",
+    "description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38386628"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "POST_Jose_Lema",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"pedroi\",\n  \"genero\": 0,\n  \"edad\": 32,\n  \"identificacion\": \"1726062308\",\n  \"direccion\": \"Otavalo sn y principal\",\n  \"telefono\": \"0982547851\",\n  \"contraseña\": \"1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{clientes_url}}/clientes",
+              "host": [
+                "{{clientes_url}}"
+              ],
+              "path": [
+                "clientes"
+              ]
+            },
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        },
+        {
+          "name": "POST_Marianela_Montalvo",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Marianela Montalvo\",\r\n  \"genero\": 1,\r\n  \"edad\": 28,\r\n  \"identificacion\": \"1716919350\",\r\n  \"direccion\": \"Amazonas y NNUU\",\r\n  \"telefono\": \"0975489655\",\r\n  \"contraseña\": \"5678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{clientes_url}}/clientes",
+              "host": [
+                "{{clientes_url}}"
+              ],
+              "path": [
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST_Juan_Osorio",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Juan Osorio\",\r\n  \"genero\": 1,\r\n  \"edad\": 35,\r\n  \"identificacion\": \"1715858310\",\r\n  \"direccion\": \"13 junio y Equinoccial\",\r\n  \"telefono\": \"0988745871\",\r\n  \"contraseña\": \"1235\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{clientes_url}}/clientes",
+              "host": [
+                "{{clientes_url}}"
+              ],
+              "path": [
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET_Cliente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{clientes_url}}/clientes/1",
+              "host": [
+                "{{clientes_url}}"
+              ],
+              "path": [
+                "clientes",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT_Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Juanita Osorio\",\r\n  \"genero\": 1,\r\n  \"edad\": 22,\r\n  \"identificacion\": \"1726313255\",\r\n  \"direccion\": \"Otavalo sn y principal\",\r\n  \"telefono\": \"0982547851\",\r\n  \"contraseña\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{clientes_url}}/clientes/3",
+              "host": [
+                "{{clientes_url}}"
+              ],
+              "path": [
+                "clientes",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE_CLIENTE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{clientes_url}}/clientes/3",
+              "host": [
+                "{{clientes_url}}"
+              ],
+              "path": [
+                "clientes",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cuentas",
+      "item": [
+        {
+          "name": "Jose Lema — Cuenta 478758",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numeroCuenta\": \"478758\",\r\n  \"tipo\": \"Ahorros\",\r\n  \"saldoInicial\": 2000,\r\n  \"estado\": true,\r\n  \"clienteId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/cuentas",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "cuentas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Marianela Montalvo — Cuenta 225487",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numeroCuenta\": \"225487\",\r\n  \"tipo\": \"Corriente\",\r\n  \"saldoInicial\": 100,\r\n  \"estado\": true,\r\n  \"clienteId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/cuentas",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "cuentas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Juan Osorio — Cuenta 495878",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numeroCuenta\": \"495878\",\r\n  \"tipo\": \"Ahorros\",\r\n  \"saldoInicial\": 0,\r\n  \"estado\": true,\r\n  \"clienteId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/cuentas",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "cuentas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Marianela Montalvo — Cuenta 496825",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numeroCuenta\": \"496825\",\r\n  \"tipo\": \"Ahorros\",\r\n  \"saldoInicial\": 540,\r\n  \"estado\": true,\r\n  \"clienteId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/cuentas",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "cuentas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Jose Lema — Cuenta 585545",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numeroCuenta\": \"585545\",\r\n  \"tipo\": \"Corriente\",\r\n  \"saldoInicial\": 1000,\r\n  \"estado\": true,\r\n  \"clienteId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/cuentas",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "cuentas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET_Cuenta",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{cuentas_url}}/cuentas/1",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "cuentas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT_Cuenta",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"estado\":true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/cuentas/1",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "cuentas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Movimientos",
+      "item": [
+        {
+          "name": "Retiro--cueta 478758",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cuentaId\": 1,\r\n  \"tipoMovimiento\": 1,\r\n  \"valor\": -575\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/movimientos",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "movimientos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deposito_cuenta 225487",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cuentaId\": 2,\r\n  \"tipoMovimiento\": 0,\r\n  \"valor\": 600\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/movimientos",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "movimientos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deposito_cuenta 495878",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cuentaId\": 3,\r\n  \"tipoMovimiento\": 0,\r\n  \"valor\": 150\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/movimientos",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "movimientos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retiro_cuenta 496825",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cuentaId\": 4,\r\n  \"tipoMovimiento\": 1,\r\n  \"valor\": -540\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/movimientos",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "movimientos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET_movimiento",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"estado\":true\r\n}"
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/movimientos/1",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "movimientos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reporte_movimientos",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{cuentas_url}}/movimientos/reportes?Fecha=01/02/2026-10/02/2027&cliente=2",
+              "host": [
+                "{{cuentas_url}}"
+              ],
+              "path": [
+                "movimientos",
+                "reportes"
+              ],
+              "query": [
+                {
+                  "key": "Fecha",
+                  "value": "01/02/2026-10/02/2027"
+                },
+                {
+                  "key": "cliente",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "id",
+      "value": "1"
+    },
+    {
+      "key": "clientes_url",
+      "value": "https://template.postman-echo.com"
+    },
+    {
+      "key": "cuentas_url",
+      "value": ""
+    }
+  ]
+}
