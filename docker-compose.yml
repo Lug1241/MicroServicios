@@ -1,0 +1,58 @@
+services:
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${SQLSERVER_SA_PASSWORD}
+      MSSQL_PID: Developer
+    ports:
+      - "1434:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  microservicio-clientes:
+    build:
+      context: ./MicroClientes
+      dockerfile: Dockerfile
+    container_name: microservicio-clientes
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__ClientesDbConnection: "Server=sqlserver,1433;Database=ClientesDB;User Id=sa;Password=${SQLSERVER_SA_PASSWORD};TrustServerCertificate=True;"
+      RabbitMQ__UserName: ${RABBITMQ_USER}
+      RabbitMQ__Password: ${RABBITMQ_PASSWORD}
+    ports:
+      - "5154:8080"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+
+  microservicio-cuentas:
+    build:
+      context: ./MicroCuentas
+      dockerfile: Dockerfile
+    container_name: microservicio-cuentas
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__CuentasDbConnection: "Server=sqlserver,1433;Database=CuentasDB;User Id=sa;Password=${SQLSERVER_SA_PASSWORD};TrustServerCertificate=True;"
+      RabbitMQ__UserName: ${RABBITMQ_USER}
+      RabbitMQ__Password: ${RABBITMQ_PASSWORD}
+    ports:
+      - "5014:8080"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+
+volumes:
+  sqlserver_data:
